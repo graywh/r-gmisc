@@ -1,0 +1,19 @@
+export(accuracy, normalize, iterator, iterate, sign2, baseConvert)
+
+export(huwright.test, info.test, ks.test)
+
+S3method(huwright.test, default)
+S3method(huwright.test, formula)
+S3method(info.test, default)
+S3method(info.test, formula)
+S3method(ks.test, default)
+S3method(ks.test, formula)
+
+export(order, rank, sort)
+
+S3method(order, default)
+S3method(order, data.frame)
+S3method(rank, default)
+S3method(rank, data.frame)
+S3method(sort, default)
+S3method(sort, data.frame)
