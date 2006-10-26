@@ -1,14 +1,14 @@
 loglkd <- function(logmu, x, beta0, beta1)
 {
     logsigma2 <- beta0 + beta1 * logmu
-    loglike <- sum(1 / 2 * logsigma2 + (X - exp(logmu)) ^ 2 / (2 * exp(logsigma2)))
+    loglike <- sum(1 / 2 * logsigma2 + (x - exp(logmu)) ^ 2 / (2 * exp(logsigma2)))
     return(loglike)
 }
 
 loglkdbeta <- function(beta, x, logmu)
 {
     logsigma2 <- beta[1] + beta[2] * logmu
-    loglikei <- 1 / 2 * logsigma2 + (X - exp(logmu)) ^ 2 / (2 * exp(logsigma2))
+    loglikei <- 1 / 2 * logsigma2 + (x - exp(logmu)) ^ 2 / (2 * exp(logsigma2))
     loglike <- sum(loglikei)
     return(loglike)
 }
@@ -85,42 +85,15 @@ getmusigma2mle <- function(x, tol)
     return (output)
 }
 
-huwright.test <- function(x, ...) UseMethod("huwright.test")
-
-huwright.test.default <- function(x, y, tol=1, ...)
+huwright.test <- function(x, y, tol=1)
 {
-    temp1 <- getmusigma2mle(as.matrix(x), loglkd, loglkdbeta, tol)
+    d <- split(x, y)
+    temp1 <- getmusigma2mle(t(d[[1]]), tol)
     mu1.mle <- temp1$xbar.mle      
     var1.mle <- temp1$xs2.mle      
-    temp2 <- getmusigma2mle(as.matrix(y), loglkd, loglkdbeta, tol)
+    temp2 <- getmusigma2mle(t(d[[2]]), tol)
     mu2.mle <- temp2$xbar.mle      
     var2.mle <- temp2$xs2.mle      
     delta <- (mu1.mle - mu2.mle) / (sqrt((var1.mle + var2.mle) / 6))
     return(abs(delta))
-}
-
-huwright.test.formula <- function(formula, data, subset, ...)
-{
-    if(missing(formula)
-       || (length(formula) != 3)
-       || (length(attr(terms(formula[-2]), "term.labels")) != 1)
-       || (length(attr(terms(formula[-3]), "term.labels")) != 1))
-        stop("'formula' missing or incorrect")
-    m <- match.call(expand.dots = FALSE)
-    if(is.matrix(eval(m$data, parent.frame())))
-        m$data <- as.data.frame(data)
-    m[[1]] <- as.name("model.frame")
-    m$... <- NULL
-    mf <- eval(m, parent.frame())
-    DNAME <- paste(names(mf), collapse = " by ")
-    names(mf) <- NULL
-    response <- attr(attr(mf, "terms"), "response")
-    g <- factor(mf[[-response]])
-    if(nlevels(g) != 2)
-        stop("grouping factor must have exactly 2 levels")
-    DATA <- split(mf[[response]], g)
-    names(DATA) <- c("x", "y")
-    y <- do.call("huwright.test", c(DATA, list(...)))
-    y$data.name <- DNAME
-    y
 }
