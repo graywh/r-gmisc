@@ -1,12 +1,15 @@
-iterator <- function(n, step=1)
+iterator <- function(i, n=NULL, step=1)
 {
-    return(list(i=0, n=n, s=step))
-}
-
-iterate <- function(iter)
-{
-    if (iter$i == iter$n)
-        return(FALSE)
-    eval(eval(substitute(expression(iter$i <<- iter$i + iter$s))))
-    return(TRUE)
+    if (missing(n))
+    {
+        n <- i
+        i <- 0
+    }
+    else
+    {
+        i <- i - 1
+    }
+    result <- list(i=i, n=n, s=step)
+    class(result) <- "iterator"
+    return(result)
 }

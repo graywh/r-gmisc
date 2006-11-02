@@ -11,7 +11,7 @@ normalize <- function(x, margin = c(0,1,2), rename = TRUE)
         if (margin == 1)
             result <- t(result)
         if (rename)
-            dimnames(result)[[margin]] <- paste(dimnames(result)[[margin]], "_std", sep="")
+            dimnames(result)[[margin]] <- paste(dimnames(result)[[margin]], ".std", sep="")
     }
     return(result)
 }

@@ -8,8 +8,8 @@ Calculate the overall and marginal accuracies from the known and predicted class
 accuracy(known, predict)
 }
 \arguments{
-    \item{known}{The array or factor of known classifications.}
-    \item{predict}{The array or factor of predicted classifications.}
+    \item{known}{array or factor of known classifications.}
+    \item{predict}{array or factor of predicted classifications.}
 }
 \details{
 Calculates the overall and marginal accuracies from the known and predicted classifications.  The margins are the union of the levels for the known and predicted classifications.

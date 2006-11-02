@@ -4,7 +4,7 @@ Date: 2006-00-00
 Title: Will's Miscellaneous Functions
 Author: Will Gray <w.gray@vanderbilt.edu>
 Maintainer: Will Gray <w.gray@vanderbilt.edu>
-Depends: R (>= 2.0.0)
+Depends: R (>= 2.0.0), R.oo (>= 1.2.3)
 Suggests:
 Description: Various functions that are useful for everyday programming in R.
 License: GPL version 2 or newer.

@@ -85,13 +85,12 @@ getmusigma2mle <- function(x, tol)
     return (output)
 }
 
-huwright.test <- function(x, y, tol=1)
+huwright.test <- function(x, y, tol=1, ...)
 {
-    d <- split(x, y)
-    temp1 <- getmusigma2mle(t(d[[1]]), tol)
+    temp1 <- getmusigma2mle(t(x), tol)
     mu1.mle <- temp1$xbar.mle      
     var1.mle <- temp1$xs2.mle      
-    temp2 <- getmusigma2mle(t(d[[2]]), tol)
+    temp2 <- getmusigma2mle(t(y), tol)
     mu2.mle <- temp2$xbar.mle      
     var2.mle <- temp2$xs2.mle      
     delta <- (mu1.mle - mu2.mle) / (sqrt((var1.mle + var2.mle) / 6))
