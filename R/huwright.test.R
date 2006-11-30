@@ -1,11 +1,11 @@
-loglkd <- function(logmu, x, beta0, beta1)
+.loglkd <- function(logmu, x, beta0, beta1)
 {
     logsigma2 <- beta0 + beta1 * logmu
     loglike <- sum(1 / 2 * logsigma2 + (x - exp(logmu)) ^ 2 / (2 * exp(logsigma2)))
     return(loglike)
 }
 
-loglkdbeta <- function(beta, x, logmu)
+.loglkdbeta <- function(beta, x, logmu)
 {
     logsigma2 <- beta[1] + beta[2] * logmu
     loglikei <- 1 / 2 * logsigma2 + (x - exp(logmu)) ^ 2 / (2 * exp(logsigma2))
@@ -13,7 +13,7 @@ loglkdbeta <- function(beta, x, logmu)
     return(loglike)
 }
 
-getmusigma2mle <- function(x, tol)
+.getmusigma2mle <- function(x, tol)
 {
     m <- dim(x)[1]
     n <- dim(x)[2]
@@ -43,12 +43,12 @@ getmusigma2mle <- function(x, tol)
         lkdinitial <- NULL
         for (i in idx)
         {
-            nlmoutput <- nlm(loglkd, base[i], steptol = 1e-3, iterlim = 20, x = x[i, ], beta0 = beta0, beta1 = beta1)
+            nlmoutput <- nlm(.loglkd, base[i], steptol = 1e-3, iterlim = 20, x = x[i, ], beta0 = beta0, beta1 = beta1)
             xinitial[i] <- nlmoutput$estimate
             lkdinitial <- c(lkdinitial, nlmoutput$minimum)
         }
         betaprev <- c(beta0, beta1)
-        xinitial[(m + 1):(m + 2)] <- nlm(loglkdbeta, betaprev, steptol = 1e-3, iterlim = 20, x = x[idx, ], logmu = xinitial[idx])$estimate
+        xinitial[(m + 1):(m + 2)] <- nlm(.loglkdbeta, betaprev, steptol = 1e-3, iterlim = 20, x = x[idx, ], logmu = xinitial[idx])$estimate
         lkdsumsloop <- c(lkdsumsloop, 0 - sum(lkdinitial))
     }
     lkdinf <- lkdsumsloop[1] + 1 / (1 - (lkdsumsloop[3] - lkdsumsloop[2]) / (lkdsumsloop[2] - lkdsumsloop[1])) * (lkdsumsloop[2] - lkdsumsloop[1])
@@ -64,12 +64,12 @@ getmusigma2mle <- function(x, tol)
             lkdinitial <- NULL
             for (i in idx)
             {
-                nlmoutput <- nlm(loglkd, base[i], steptol = 1e-3, iterlim = 20, x = x[i, ], beta0 = beta0, beta1 = beta1)
+                nlmoutput <- nlm(.loglkd, base[i], steptol = 1e-3, iterlim = 20, x = x[i, ], beta0 = beta0, beta1 = beta1)
                 xinitial[i] <- nlmoutput$estimate
                 lkdinitial <- c(lkdinitial, nlmoutput$minimum)
             }
             betaprev <- c(beta0, beta1)
-            xinitial[(m + 1):(m + 2)] <- nlm(loglkdbeta, betaprev, steptol = 1e-3,  iterlim = 20, x = x[idx, ], logmu = xinitial[idx])$estimate
+            xinitial[(m + 1):(m + 2)] <- nlm(.loglkdbeta, betaprev, steptol = 1e-3,  iterlim = 20, x = x[idx, ], logmu = xinitial[idx])$estimate
             lkdsumsloop <- c(lkdsumsloop, 0 - sum(lkdinitial))
             lkdinf <- lkdsumsloop[1] + 1 / (1 - (lkdsumsloop[3] - lkdsumsloop[2]) / (lkdsumsloop[2] - lkdsumsloop[1])) * (lkdsumsloop[2] - lkdsumsloop[1])
             iter <- iter + 1
@@ -87,10 +87,10 @@ getmusigma2mle <- function(x, tol)
 
 huwright.test <- function(x, y, tol=1, ...)
 {
-    temp1 <- getmusigma2mle(t(x), tol)
+    temp1 <- .getmusigma2mle(t(x), tol)
     mu1.mle <- temp1$xbar.mle      
     var1.mle <- temp1$xs2.mle      
-    temp2 <- getmusigma2mle(t(y), tol)
+    temp2 <- .getmusigma2mle(t(y), tol)
     mu2.mle <- temp2$xbar.mle      
     var2.mle <- temp2$xs2.mle      
     delta <- (mu1.mle - mu2.mle) / (sqrt((var1.mle + var2.mle) / 6))
