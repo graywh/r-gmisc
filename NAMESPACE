@@ -1,4 +1,1 @@
-export(accuracy, normalize, order.data.frame)
-export(iterator, iterate)
-export(baseConvert)
-export(huwright.test, info.test, wga.test)
+exportPattern("^[^\\.]")
