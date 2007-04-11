@@ -16,5 +16,6 @@ accuracy <- function(known, predict)
         result <- c(result, tmp[i,i] / sum(tmp[i,]))
         names(result)[i+1] <- lvls[i]
     }
+    result[is.nan(result)] <- 0
     return(result)
 }
