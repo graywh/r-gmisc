@@ -4,11 +4,11 @@ order.data.frame <- function(x, na.last=TRUE, decreasing=FALSE)
     len2 <- length(na.last)
     len3 <- length(decreasing)
     if (len < len2)
-        na.last <- na.last[len]
+        na.last <- na.last[1 : len]
     if (len > len2)
         na.last[(len2 + 1) : len] <- TRUE
     if (len < len3)
-        decreasing <- decreasing[len]
+        decreasing <- decreasing[1 : len]
     if (len > len3)
         decreasing[(len3 + 1) : len] <- FALSE
     ox <- 1:dim(x)[1]
