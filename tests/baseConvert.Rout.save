@@ -1,0 +1,17 @@
+
+
+> library(Gmisc)
+> 
+> # 7F
+> baseConvert(127, 16, 10)
+[1] "7F"
+> # 249
+> baseConvert("F9", 10, 16)
+[1] 249
+> # 100110
+> baseConvert(38, 2, 10)
+[1] "100110"
+> # 109
+> baseConvert("1101101", 10, 2)
+[1] 109
+> 
