@@ -25,4 +25,10 @@ Department of Biostatistics\cr
 Vanderbilt University\cr
 \email{w.gray@vanderbilt.edu}
 }
+\examples{
+baseConvert(231, 16)
+baseConvert(231, 2)
+baseConvert("7A", 10, 16)
+baseConvert("100110110", 10, 2)
+}
 \keyword{utilities}

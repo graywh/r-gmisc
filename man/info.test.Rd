@@ -18,4 +18,11 @@ InfoScore statistic.
 \references{
 citation needed
 }
+\examples{
+\dontshow{
+x <- 2*(1:101) - 1
+y <- 2*(1:100)
+}
+info.test(x, y)
+}
 \keyword{htest}

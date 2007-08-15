@@ -30,9 +30,9 @@ Vanderbilt University\cr
 }
 \examples{
 \dontshow{
-d <- data.frame(matrix(rnorm(100), ncol=5))
+d <- data.frame(matrix(rnorm(50), ncol=5))
 names(d) <- c("tvalue", "cvalue", "dvalue", "asam", "wga")
 }
-d.std <- normalize(d, 2)
+normalize(d, 2)
 }
 \keyword{utilities}
