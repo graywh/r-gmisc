@@ -2,8 +2,10 @@ wga.test <- function(x, y, ...)
 {
     n1 <- length(x)
     n2 <- length(y)
-    if (n1 < 2 || n2 < 2)
-        stop("Not enough samples.")
+    if (n1 < 2)
+        stop("Not enough x observations.")
+    if (n2 < 2)
+        stop("Not enough y observations.")
     t1 <- (n1 * (n1 - 1)) / 2
     t2 <- (n2 * (n2 - 1)) / 2
     dw1 <- sum(dist(x))
@@ -16,7 +18,7 @@ wga.test <- function(x, y, ...)
     }
     else if (denom == 0)
     {
-        wga <- 1000
+        wga <- 10000
     }
     else
     {

@@ -1,1 +1,2 @@
+useDynLib(Gmisc, infotest)
 exportPattern("^[^\\.]")
