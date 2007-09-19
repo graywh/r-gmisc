@@ -1,12 +1,7 @@
 baseConvert <- function(x, target, base=10, ...)
 {
     # Value -> Digit
-    characters <- c("0", "1", "2", "3", "4", "5",
-                    "6", "7", "8", "9", "A", "B",
-                    "C", "D", "E", "F", "G", "H",
-                    "I", "J", "K", "L", "M", "N",
-                    "O", "P", "Q", "R", "S", "T",
-                    "U", "V", "W", "X", "Y", "Z")
+    characters <- c(0:9, LETTERS)
     # Digit -> Value
     numbers <- 0:35
     names(numbers) <- characters
@@ -24,34 +19,32 @@ baseConvert <- function(x, target, base=10, ...)
         if (any(!unlist(x) %in% characters[1:base]))
             stop("Invalid number for base.")
     }
-    result <- c()
-    for (i in 1:length(x))
+
+    # Convert to base 10
+    if (base != 10)
     {
-        # Convert to base 10
-        sum <- 0
-        if (base != 10)
-        {
-            for (l in x[[i]])
-            {
-                sum <- sum * base + numbers[l]
-            }
-            names(sum) <- NULL
-        }
-        else
-            sum <- x[i]
-        # Convert to new base
-        if (target != 10)
-        {
-            str <- c()
-            while (sum > 0)
-            {
-                str <- c(characters[sum %% target + 1] , str)
-                sum <- floor(sum / target)
-            }
-            result[i] <- paste(str, collapse="")
-        }
-        else
-            result[i] <- sum
+        l <- lapply(x, length)
+        f1 <- function(x, l)
+            sum(numbers[x] * base ^ ((l - 1):0))
+        sum <- mapply(f1, x, l)
+        names(sum) <- NULL
     }
+    else
+        sum <- x
+
+    result <- c()
+    # Convert to new base
+    if (target != 10)
+    {
+        f2 <- function(sum)
+        {
+            d <- floor(log(sum, target) + 1)
+            paste(characters[abs(diff(sum %% target^(d:0))) %/% target^((d-1):0) + 1], collapse="")
+        }
+        result <- mapply(f2, sum)
+    }
+    else
+        result <- sum
+
     return(result)
 }
