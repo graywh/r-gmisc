@@ -25,7 +25,7 @@ Vanderbilt University\cr
 }
 \examples{
 \dontshow{
-known <- c(rep(1,4), rep(2,4))
+known <- c(rep(1:2,each=4))
 predict <- c(1, 2, 1, 1, 2, 1, 2, 1)
 }
 accuracy(known, predict)

@@ -1,5 +1,4 @@
 #include <math.h>
-#include <stdio.h>
 
 #define ln2 0.6931472
 
