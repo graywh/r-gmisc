@@ -19,12 +19,7 @@ Uses multiplication to convert the number to base 10 and integer division and mo
 \value{
 Character representation of the number in the new base.
 }
-\author{
-Will Gray\cr
-Department of Biostatistics\cr
-Vanderbilt University\cr
-\email{w.gray@vanderbilt.edu}
-}
+\author{Will Gray \email{graywh@gmail.com}}
 \examples{
 baseConvert(231, 16)
 baseConvert(231, 2)

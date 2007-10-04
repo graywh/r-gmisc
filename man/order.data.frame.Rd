@@ -15,10 +15,5 @@ order.data.frame(x, na.last=TRUE, decreasing=FALSE)
 \details{
 In the case of ties in the first data.frame variable, values in the second are used to break them.  If the values are still tied, values in the later variables are used to break the tie.
 }
-\author{
-Will Gray\cr
-Department of Biostatistics\cr
-Vanderbilt University\cr
-\email{w.gray@vanderbilt.edu}
-}
+\author{Will Gray \email{graywh@gmail.com}}
 \keyword{utilities}

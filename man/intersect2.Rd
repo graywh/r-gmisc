@@ -16,12 +16,7 @@ Finds the intersection of several arrays.
 \value{
 Array of the intersection.
 }
-\author{
-Will Gray\cr
-Department of Biostatistics\cr
-Vanderbilt University\cr
-\email{w.gray@vanderbilt.edu}
-}
+\author{Will Gray \email{graywh@gmail.com}}
 \examples{
 \dontshow{
 x2 <- 2 * (1:50)
