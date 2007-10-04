@@ -7,4 +7,4 @@
 Collection of useful functions from Will.
 }
 \author{Will Gray \email{graywh@gmail.com}}
-\keyword{utilities}
+\keyword{package}

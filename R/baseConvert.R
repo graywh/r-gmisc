@@ -1,4 +1,4 @@
-baseConvert <- function(x, target, base=10, ...)
+baseConvert <- function(x, target, base=10)
 {
     # Value -> Digit
     characters <- c(0:9, LETTERS)
