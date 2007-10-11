@@ -12,14 +12,16 @@ roundrobin <- function(teams, rounds=teams-1)
     }
     t1 <- teams - 1
     t2 <- teams - 2
+    v <- 1:t1
 
     slice <- function(x, n)
     {
-        c(x[n:length(x)], if (n > 1) x[1:(n-1)] else c())
+        x[(1:length(x) + n - 2) %% length(x) + 1]
     }
 
-    mat <- sapply(slice(t1:1,t2), slice, x=1:t1)
-    idx <- mapply(match, 1:t1, as.data.frame(mat))
+    #mat <- matrix(rep(v, t1) - rep(v, each=t1) + 1, ncol=t1) %% t1 + 1
+    mat <- sapply(slice(t1:1, t2), slice, x=v)
+    idx <- mapply(match, v, as.data.frame(mat))
 
     mat <- replace(mat, idx + 0:t2 * t1, t0)
 
