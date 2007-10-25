@@ -1,5 +1,6 @@
 baseConvert <- function(x, target, base=10)
 {
+    olddim <- dim(x)
     # Value -> Digit
     characters <- c(0:9, LETTERS)
     # Digit -> Value
@@ -46,5 +47,6 @@ baseConvert <- function(x, target, base=10)
     else
         result <- sum
 
+    dim(result) <- olddim
     return(result)
 }

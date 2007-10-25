@@ -48,7 +48,7 @@ roundrobin <- function(teams, rounds=teams - (teams %% 2 == 0), method=c("yahoo"
             mat <- mat[,v1]
         }
     }
-    else if (method == "loop")
+    else if (method == "loop") # algorithm from Wikipedia
     {
         mat <- roundrobin(teams, method="yahoo")
         mat <- mat[order(-mat[,teams]), c(teams, 1:t1)] %% teams + 1
@@ -60,9 +60,10 @@ roundrobin <- function(teams, rounds=teams - (teams %% 2 == 0), method=c("yahoo"
             mat <- mat[,v1]
         }
     }
-    else # yahoo, loop
+    else # yahoo
     {
-        #mat <- matrix(rep(v, t1) - rep(v, each=t1) + 1, ncol=t1) %% t1 + 1
+        #mat <- matrix((rep(v1, t1) - rep(v1, each=t1) + 1) %% t1 + 1, ncol=t1) %% t1 + 1
+        #mat <- outer(v1, v1, function(x,y) (x-y+1) %% t1 + 1)
         mat <- sapply(slice(t1:1, t2), slice, x=v1)
         idx <- c(t1, b, b-1)
         mat <- replace(mat, idx + v2 * t1, t0)
