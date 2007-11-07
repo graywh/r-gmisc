@@ -11,7 +11,7 @@
 }
 \arguments{
   \item{file}{the name of the file which the data are to be read from.  If it does not contain an \emph{absolute} path, the file name is \emph{relative} to the current working directory, \code{getwd()}.  Tilde-expansion is performed where supported.}
-  \item{sep}{the field separator character.  Values on each line of the file are separated by this character.  If \code{sep = ""} the separator is "white space", that is one or more spaces, tabs, newlines or carriage returns.}
+  \item{sep}{the field separator character.  Values on each line of the file are separated by this character.  If \code{sep = ""} the separator is \dQuote{white space}, that is one or more spaces, tabs, newlines or carriage returns.}
   \item{\dots}{additional arguments of \code{\link{read.table}}.}
 }
 \details{

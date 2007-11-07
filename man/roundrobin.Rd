@@ -5,7 +5,7 @@
   Generates round-robin schedules for a certain number of teams and rounds.
 }
 \usage{
-  roundrobin(teams, rounds = teams - 1)
+  roundrobin(teams, rounds = teams - (teams %% 2 == 0), method = c("yahoo", "loop", "recursive"))
 }
 \arguments{
   \item{teams}{single integer.  The number of teams to generate a schedule for.}
