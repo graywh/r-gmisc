@@ -1,8 +1,15 @@
 permutation <- function(x, n)
 {
-    base <- c(1, cumprod(1:n))
-    idx <- rev(diff((x - 1) %% base) %/% base[1:n] + 1)
-    m <- outer(idx, idx, '<=')
-    m[!upper.tri(m)] <- FALSE
-    colSums(m) + idx
+    result <- c()
+    choose <- 1:n
+    x <- x - 1
+    base <- c(rev(cumprod(1:(n-1))), 1)
+    for (i in 1:n)
+    {
+        j <- x %/% base[i] + 1
+        result[i] <- choose[j]
+        choose <- choose[-j]
+        x <- x %% base[i]
+    }
+    result
 }
