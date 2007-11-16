@@ -21,12 +21,12 @@ intersect2(...)
   \code{\link{intersect}}
 }
 \examples{
-  \dontshow{
-    x2 <- 2 * (1:50)
-    x3 <- 3 * (1:33)
-    x5 <- 5 * (1:20)
-  }
-  intersect2(x2, x3, x5)
+\dontshow{
+x2 <- 2 * (1:50)
+x3 <- 3 * (1:33)
+x5 <- 5 * (1:20)
+}
+intersect2(x2, x3, x5)
 }
 \keyword{manip}
 \keyword{utilities}

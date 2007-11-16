@@ -26,9 +26,9 @@ strljust(x, n = 1, char = " ", type = "c")
 }
 \author{Will Gray \email{graywh@gmail.com}}
 \examples{
-  strrjust("hello", 10)
-  strljust("hello", 10)
-  strcenter("hello", 10)
+strrjust("hello", 10)
+strljust("hello", 10)
+strcenter("hello", 10)
 }
 \keyword{programming}
 \keyword{utilities}

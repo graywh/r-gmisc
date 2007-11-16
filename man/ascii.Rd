@@ -17,8 +17,8 @@ charToInt(ch)
 }
 \author{Will Gray \email{graywh@gmail.com}}
 \examples{
-  intToChar(72)
-  charToInt("G")
+intToChar(72)
+charToInt("G")
 }
 \keyword{programming}
 \keyword{utilities}

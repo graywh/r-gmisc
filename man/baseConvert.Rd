@@ -20,10 +20,10 @@ baseConvert(x, target, base = 10)
 }
 \author{Will Gray \email{graywh@gmail.com}}
 \examples{
-  baseConvert(231, 16)
-  baseConvert(231, 2)
-  baseConvert("7A", 10, 16)
-  baseConvert("100110110", 10, 2)
+baseConvert(231, 16)
+baseConvert(231, 2)
+baseConvert("7A", 10, 16)
+baseConvert("100110110", 10, 2)
 }
 \keyword{programming}
 \keyword{utilities}

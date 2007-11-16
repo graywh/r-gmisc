@@ -16,7 +16,7 @@ permutation(x, n)
 }
 \author{Will Gray \email{graywh@gmail.com}}
 \examples{
-  for (i in 1:24) print(permutation(i, 4))
+for (i in 1:24) print(permutation(i, 4))
 }
 \keyword{programming}
 \keyword{utilities}
