@@ -6,8 +6,8 @@
   Reads a file in \emph{WFCCM2} data or clinical info format.
 }
 \usage{
-  read.wfccmdata(file, sep = "\t", \dots)
-  read.wfccminfo(file, sep = "\t", \dots)
+read.wfccmdata(file, sep = "\t", \dots)
+read.wfccminfo(file, sep = "\t", \dots)
 }
 \arguments{
   \item{file}{the name of the file which the data are to be read from.  If it does not contain an \emph{absolute} path, the file name is \emph{relative} to the current working directory, \code{getwd()}.  Tilde-expansion is performed where supported.}

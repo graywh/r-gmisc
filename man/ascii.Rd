@@ -8,8 +8,8 @@
   Some useful ASCII operations that are missing in R.
 }
 \usage{
-  intToChar(i)
-  charToInt(ch)
+intToChar(i)
+charToInt(ch)
 }
 \arguments{
   \item{i}{integer vector [0-255].  Get the ASCII equivalent for the integer code.}

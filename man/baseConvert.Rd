@@ -5,7 +5,7 @@
   Converts numbers from one base to another.
 }
 \usage{
-  baseConvert(x, target, base = 10)
+baseConvert(x, target, base = 10)
 }
 \arguments{
   \item{x}{number to convert.  If \code{base} is greater than 10, \code{x} must be mode character.  Otherwise, numeric is allow.}

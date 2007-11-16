@@ -5,7 +5,7 @@
   Returns a permutation which rearranges the first data.frame variable into ascending or descending order, breaking ties by further variables.
 }
 \usage{
-  order.data.frame(x, na.last = TRUE, decreasing = FALSE)
+order.data.frame(x, na.last = TRUE, decreasing = FALSE)
 }
 \arguments{
   \item{x}{the data.frame}

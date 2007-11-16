@@ -11,9 +11,9 @@
   \code{strljust} adds \code{char} to the right.
 }
 \usage{
-  strcenter(x, n = 1, char = " ", type = "c")
-  strrjust(x, n = 1, char = " ", type = "c")
-  strljust(x, n = 1, char = " ", type = "c")
+strcenter(x, n = 1, char = " ", type = "c")
+strrjust(x, n = 1, char = " ", type = "c")
+strljust(x, n = 1, char = " ", type = "c")
 }
 \arguments{
   \item{x}{character vector.}

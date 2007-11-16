@@ -5,7 +5,7 @@
   Get the intersection of more than two vectors.
 }
 \usage{
-  intersect2(...)
+intersect2(...)
 }
 \arguments{
   \item{...}{vectors of items to find the intersection of.}

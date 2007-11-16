@@ -5,7 +5,7 @@
   Gets a permutation of the integers 1-N by its index 1-N!.
 }
 \usage{
-  permutation(x, n)
+permutation(x, n)
 }
 \arguments{
   \item{x}{number (length 1 vector).  The index of the permutation to generate.  Must be less than \code{factorial(n)}}
