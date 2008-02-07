@@ -2,7 +2,6 @@ BASE64 <- c(LETTERS, letters, as.character(0:9), "+", "/")
 
 encode64 <- function(x)
 {
-    x <- charToInt(strsplit(x, "")[[1]])
     l <- ceiling(length(x) / 3)
     a <- length(x) %% 3
     y <- c()
@@ -35,6 +34,5 @@ decode64 <- function(x)
         t[is.na(t)] <- 0
         y[(i*3-2):(i*3)] <- sum(t) %/% d %% 256
     }
-    y <- ASCII[y + 1]
-    return(paste(y, collapse=""))
+    return(y)
 }

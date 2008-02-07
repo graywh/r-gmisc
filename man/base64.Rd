@@ -10,12 +10,18 @@
 }
 \usage{
 encode64(x)
-decode64(x)
+decode64(s)
 }
 \arguments{
-  \item{x}{character vector of length 1.  For \code{decode64}, it should be a Base64-encode character string.  For \code{encode64}, it should be an ASCII string.}
+  \item{x}{numeric vector of ASCII byte codes.  All values should be \code{> 1} and \code{< 256}}
+  \item{s}{a base64-encoded character string.}
 }
 \author{Will Gray \email{graywh@gmail.com}}
+\value{
+\code{encode64} returns a single character string of the base64-encoding.
+
+\code{decode64} returns a numeric vector of ASCII byte codes.
+}
 \examples{
 encode64("This is a string to encode.")
 decode64(encode64("This is a string to encode and decode."))
