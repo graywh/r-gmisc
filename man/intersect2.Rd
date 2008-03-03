@@ -16,7 +16,6 @@ intersect2(...)
 \value{
   Array of the intersection.
 }
-\author{Will Gray \email{graywh@gmail.com}}
 \seealso{
   \code{\link{intersect}}
 }

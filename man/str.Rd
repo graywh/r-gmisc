@@ -24,7 +24,6 @@ strljust(x, n = 1, char = " ", type = "c")
 \value{
   Character vector.
 }
-\author{Will Gray \email{graywh@gmail.com}}
 \examples{
 strrjust("hello", 10)
 strljust("hello", 10)

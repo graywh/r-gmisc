@@ -29,7 +29,6 @@ fibonacci.under(m)
 
   Number vector of Fibonacci numbers.
 }
-\author{Will Gray \email{graywh@gmail.com}}
 \examples{
 fibonacci(1:10)
 

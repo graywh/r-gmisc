@@ -14,7 +14,6 @@ permutation(x, n)
 \value{
   Number vector of the integers 1-n re-ordered.
 }
-\author{Will Gray \email{graywh@gmail.com}}
 \examples{
 for (i in 1:24) print(permutation(i, 4))
 }

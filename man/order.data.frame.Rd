@@ -17,7 +17,6 @@ order.data.frame(x, na.last = TRUE, decreasing = FALSE)
 
   In the case of ties in the first data.frame variable, values in the second are used to break them.  If the values are still tied, values in the later variables are used to break the tie.
 }
-\author{Will Gray \email{graywh@gmail.com}}
 \seealso{
   \code{\link{order}}
 }

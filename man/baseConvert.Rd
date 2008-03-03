@@ -18,7 +18,6 @@ baseConvert(x, target, base = 10)
 \value{
   Character representation of the number in the new base.
 }
-\author{Will Gray \email{graywh@gmail.com}}
 \examples{
 baseConvert(231, 16)
 baseConvert(231, 2)

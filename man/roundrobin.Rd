@@ -23,6 +23,5 @@ roundrobin(teams, rounds = teams - (teams \%\% 2 == 0),
 
   Method \code{"recursive"} is for tournaments with \code{teams = 2 ** k}.
 }
-\author{Will Gray \email{graywh@gmail.com}}
 \keyword{programming}
 \keyword{utilities}

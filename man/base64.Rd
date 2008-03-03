@@ -10,17 +10,17 @@
 }
 \usage{
 encode64(x)
-decode64(s)
+decode64(s, toChar = TRUE)
 }
 \arguments{
-  \item{x}{numeric vector of ASCII byte codes.  All values should be \code{> 1} and \code{< 256}}
-  \item{s}{a base64-encoded character string.}
+  \item{x}{Character vector or list of numeric vectors of ASCII byte codes.}
+  \item{s}{Base64-encoded character strings.}
+  \item{toChar}{Logical.  If \code{TRUE}, return the result as character, otherwise numeric ASCII byte codes.}
 }
-\author{Will Gray \email{graywh@gmail.com}}
 \value{
-\code{encode64} returns a single character string of the base64-encoding.
+\code{encode64} returns base64-encoded character strings.
 
-\code{decode64} returns a numeric vector of ASCII byte codes.
+\code{decode64} returns a character vector or a list of numeric vectors of ASCII byte codes.
 }
 \examples{
 encode64("This is a string to encode.")
