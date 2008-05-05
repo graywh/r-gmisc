@@ -39,5 +39,4 @@ fibonacci.under(100)
 fibonacci.order(55)
 fibonacci(1:fibonacci.order(55))
 }
-\keyword{programming}
 \keyword{utilities}
