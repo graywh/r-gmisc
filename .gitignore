@@ -1,0 +1,4 @@
+..Rcheck
+chm/
+src/*.so
+src/*.o
