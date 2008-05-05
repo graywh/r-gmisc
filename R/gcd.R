@@ -1,14 +1,13 @@
 gcd <- function(a, b) {
-    .internal <- function(x, y) {
-        if (y == 0) {
-            x
-        } else {
-            .internal(y, x %% y)
-        }
-    }
-    if (length(a) > 1 || length(b) > 1) { stop("does not work element-wise") }
-    a <- as.integer(abs(a))
-    b <- as.integer(abs(b))
+    .internal <- function(x, y) ifelse(y == 0, x, .internal(y, x %% y))
+    ai <- as.integer(abs(a))
+    bi <- as.integer(abs(b))
+    if (any(a != ai) || any(b != bi)) warning("Coercing all parameters to integers.")
+    a <- ai
+    b <- bi
+    l <- max(length(a), length(b))
+    a <- rep(a, length.out=l)
+    b <- rep(b, length.out=l)
     .internal(a, b)
 }
 
