@@ -1,4 +1,4 @@
-library(Gmisc)
+library(Gmisc, warn.conflicts=FALSE)
 
 # 7F
 baseConvert(127, 16, 10)
