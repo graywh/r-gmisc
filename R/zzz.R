@@ -1,2 +1,1 @@
-.onUnload <- function(libpath)
-    library.dynam.unload("Gmisc", libpath)
+.onUnload <- function(libpath) library.dynam.unload("Gmisc", libpath)

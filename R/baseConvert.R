@@ -1,5 +1,4 @@
-baseConvert <- function(x, target, base=10)
-{
+baseConvert <- function(x, target, base=10) {
     olddim <- dim(x)
     # Value -> Digit
     characters <- c(0:9, LETTERS)
@@ -14,16 +13,14 @@ baseConvert <- function(x, target, base=10)
         stop("Base of x must be [2,36]")
     if (target < 2 || target > 36)
         stop("Target base for x must be [2,36]")
-    if (base != 10)
-    {
+    if (base != 10) {
         x <- strsplit(as.character(x), "")
         if (any(!unlist(x) %in% characters[1:base]))
             stop("Invalid number for base.")
     }
 
     # Convert to base 10
-    if (base != 10)
-    {
+    if (base != 10) {
         l <- lapply(x, length)
         f1 <- function(x, l)
             sum(numbers[x] * base ^ ((l - 1):0))
@@ -35,10 +32,8 @@ baseConvert <- function(x, target, base=10)
 
     result <- c()
     # Convert to new base
-    if (target != 10)
-    {
-        f2 <- function(sum)
-        {
+    if (target != 10) {
+        f2 <- function(sum) {
             d <- floor(log(sum, target) + 1)
             paste(characters[abs(diff(sum %% target^(d:0))) %/% target^((d-1):0) + 1], collapse="")
         }

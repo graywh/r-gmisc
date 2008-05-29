@@ -1,7 +1,6 @@
 BASE64 <- c(LETTERS, letters, as.character(0:9), "+", "/")
 
-encode64 <- function(x)
-{
+encode64 <- function(x) {
     sapply(x, function(x) {
         if (class(x) == "character")
             x <- as.numeric(charToRaw(x))
@@ -10,8 +9,7 @@ encode64 <- function(x)
         y <- c()
         m <- 256 ^ (2:0)
         d <- 64 ^ (3:0)
-        for (i in 1:l)
-        {
+        for (i in 1:l) {
             t <- x[(i * 3 - 2):(i * 3)] * m
             t[is.na(t)] <- 0
             y[(i * 4 - 3):(i * 4)] <- sum(t) %/% d %% 64
@@ -23,8 +21,7 @@ encode64 <- function(x)
     })
 }
 
-decode64 <- function(s, toChar=TRUE)
-{
+decode64 <- function(s, toChar=TRUE) {
     s <- strsplit(s, "")
     sapply(s, function(x) {
         l <- length(x) / 4
@@ -34,8 +31,7 @@ decode64 <- function(s, toChar=TRUE)
         y <- c()
         m <- 64 ^ (3:0)
         d <- 256 ^ (2:0)
-        for (i in 1:l)
-        {
+        for (i in 1:l) {
             t <- x[(i * 4 - 3):(i * 4)] * m
             t[is.na(t)] <- 0
             y[(i * 3 - 2):(i * 3)] <- sum(t) %/% d %% 256

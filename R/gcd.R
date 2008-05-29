@@ -1,5 +1,5 @@
 gcd <- function(a, b) {
-    .internal <- function(x, y) ifelse(y == 0, x, .internal(y, x %% y))
+    .internal <- function(x, y) ifelse(y == 0, x, Recall(y, x %% y))
     ai <- as.integer(abs(a))
     bi <- as.integer(abs(b))
     if (any(a != ai) || any(b != bi)) warning("Coercing all parameters to integers.")
