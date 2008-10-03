@@ -11,6 +11,4 @@ gcd <- function(a, b) {
     .internal(a, b)
 }
 
-lcm <- function(a, b) {
-    a * b / gcd(a, b)
-}
+lcm <- function(a, b) { a * b / gcd(a, b) }

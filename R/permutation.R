@@ -9,5 +9,5 @@ permutation <- function(x, n) {
         choose <- choose[-j]
         x <- x %% base[i]
     }
-    result
+    return(result)
 }

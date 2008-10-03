@@ -1,7 +1,7 @@
 BASE64 <- c(LETTERS, letters, as.character(0:9), "+", "/")
 
 encode64 <- function(x) {
-    sapply(x, function(x) {
+    return(sapply(x, function(x) {
         if (class(x) == "character")
             x <- as.numeric(charToRaw(x))
         l <- ceiling(length(x) / 3)
@@ -18,12 +18,12 @@ encode64 <- function(x) {
         if (a > 0)
             y[(l * 4 - 2 + a):(l * 4)] <- "="
         paste(y, collapse="")
-    })
+    }))
 }
 
 decode64 <- function(s, toChar=TRUE) {
     s <- strsplit(s, "")
-    sapply(s, function(x) {
+    return(sapply(s, function(x) {
         l <- length(x) / 4
         a <- sum(x == "=")
         x <- x[x != "="]
@@ -40,5 +40,5 @@ decode64 <- function(s, toChar=TRUE) {
             y <- y[1:(length(y) - a)]
         if (toChar)
             rawToChar(as.raw(y))
-    })
+    }))
 }

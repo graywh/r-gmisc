@@ -59,5 +59,5 @@ roundrobin <- function(teams, rounds=teams - (teams %% 2 == 0), method=c("yahoo"
             mat <- cbind(mat, order(idx))
     }
 
-    mat[(1:rounds - 1) %% t1 + 1,]
+    return(mat[(1:rounds - 1) %% t1 + 1,])
 }

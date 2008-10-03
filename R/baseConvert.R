@@ -42,6 +42,5 @@ baseConvert <- function(x, target, base=10) {
     else
         result <- sum
 
-    dim(result) <- olddim
-    return(result)
+    return(structure(result, dim=olddim))
 }

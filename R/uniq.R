@@ -1,3 +1,1 @@
-uniq <- function(x) {
-    x[rle(x)$lengths == 1]
-}
+uniq <- function(x) { x[rle(x)$lengths == 1] }
