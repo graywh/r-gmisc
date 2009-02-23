@@ -1,8 +1,8 @@
 Package: Gmisc
 Version: 0.0
 Title: Will's Miscellaneous Functions
-Author: Will Gray <w.gray@vanderbilt.edu>
-Maintainer: Will Gray <w.gray@vanderbilt.edu>
+Author: Will Gray <graywh@gmail.com>
+Maintainer: Will Gray <graywh@gmail.com>
 Depends: R (>= 2.0.0)
 Description: Various functions that are useful for everyday programming in R.
 License: GPL version 3 or newer.
