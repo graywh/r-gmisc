@@ -20,3 +20,16 @@ prime.factorization <- function(x) {
     if (maybe > 1) { out <- rbind(out, c(maybe, 1)) }
     return(out[order(out[,1]),])
 }
+
+sieve.of.eratosthenes <- function(limit) {
+    is.prime = rep(TRUE, limit)
+    i <- 2
+    x <- floor(sqrt(limit)) + 1
+    while (i < x) {
+        if (is.prime[i]) {
+            is.prime[seq.int(from=min(i*i,limit),to=limit,by=i)] <- FALSE
+        }
+        i <- i + 1
+    }
+    return(which(is.prime))[-1]
+}
