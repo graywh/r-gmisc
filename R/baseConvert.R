@@ -7,6 +7,8 @@ baseConvert <- function(x, target, base=10) {
     names(numbers) <- characters
     if (is.numeric(x))
         x <- abs(x)
+    else if (is.character(x))
+        x <- toupper(x)
     if (base > 10 && !is.character(x))
         stop("Parameter x must be of mode character for bases greater than 10.")
     if (base < 2 || base > 36)
