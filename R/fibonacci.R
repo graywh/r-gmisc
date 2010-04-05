@@ -10,3 +10,10 @@ fibonacci.order <- function(x) {
 fibonacci.under <- function(m) { fibonacci(floor(log(sqrt(5) * m, golden.ratio) + 0.5)) }
 
 is.fibonacci <- function(x) { fibonacci.under(x) == x }
+
+fibonacci.alternate <- function(n) {
+    n <- n - 1
+    a <- ceiling(n / 2)
+    b <- n - a
+    sum(choose(seq(n,a),seq(0,b)))
+}
