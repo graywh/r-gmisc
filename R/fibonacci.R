@@ -17,3 +17,5 @@ fibonacci.alternate <- function(n) {
     b <- n - a
     sum(choose(seq(n,a),seq(0,b)))
 }
+
+lucas <- function(n) { as.integer(golden.ratio ^ n + (1 - golden.ratio) ^ n) }
