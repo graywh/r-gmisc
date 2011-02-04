@@ -17,10 +17,10 @@ roundrobin <- function(teams, rounds=teams - (teams %% 2 == 0), method=c("yahoo"
     t2 <- teams - 2
     v1 <- seq(t1)
     v2 <- v1 - 1
-    b <- 2 * 1:(t2 / 2)
+    b <- 2 * seq(t2/2)
 
     slice <- function(x, n) {
-        x[(1:length(x) + n - 2) %% length(x) + 1]
+        x[(seq(length(x)) + n - 2) %% length(x) + 1]
     }
 
     if (method == "recursive") {
@@ -31,11 +31,11 @@ roundrobin <- function(teams, rounds=teams - (teams %% 2 == 0), method=c("yahoo"
             mat <- roundrobin(4, method="yahoo")
         } else {
             td2 <- teams / 2
-            #vd2 <- 1:td2
+            #vd2 <- seq(td2)
             smat <- roundrobin(td2, method="recursive")
             smat2 <- smat + td2
             #mat <- rbind(cbind(smat, smat2), c(vd2 + td2, vd2), cbind(smat2, smat))
-            mat <- rbind(cbind(smat, smat2), slice(1:teams, td2 + 1), cbind(smat2, smat))
+            mat <- rbind(cbind(smat, smat2), slice(seq(teams), td2 + 1), cbind(smat2, smat))
         }
         if (bye) {
             idx <- c(t1, b, b-1)
@@ -44,7 +44,7 @@ roundrobin <- function(teams, rounds=teams - (teams %% 2 == 0), method=c("yahoo"
         }
     } else if (method == "loop") { # algorithm from Wikipedia
         mat <- roundrobin(teams, method="yahoo")
-        mat <- mat[order(-mat[,teams]), c(teams, 1:t1)] %% teams + 1
+        mat <- mat[order(-mat[,teams]), c(teams, seq(t1))] %% teams + 1
 
         if (bye) {
             idx <- which(mat == teams)
@@ -54,7 +54,7 @@ roundrobin <- function(teams, rounds=teams - (teams %% 2 == 0), method=c("yahoo"
     } else { # yahoo
         #mat <- matrix((rep(v1, t1) - rep(v1, each=t1) + 1) %% t1 + 1, ncol=t1) %% t1 + 1
         #mat <- outer(v1, v1, function(x,y) (x-y+1) %% t1 + 1)
-        mat <- sapply(slice(t1:1, t2), slice, x=v1)
+        mat <- sapply(slice(seq(t1,1), t2), slice, x=v1)
         idx <- c(t1, b, b-1)
         mat <- replace(mat, idx + v2 * t1, t0)
 

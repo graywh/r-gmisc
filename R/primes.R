@@ -11,7 +11,7 @@ prime.factorization <- function(x) {
     prim.fac <- candid[fac == 1]
 
     how.many.times <- function(y, b) {
-        sum(y %% b^(1:log(y, base=b)) == 0)
+        sum(y %% b^seq(log(y, base=b)) == 0)
     }
 
     pow <- unlist(lapply(prim.fac, how.many.times, y=x))
