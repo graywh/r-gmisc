@@ -1,6 +1,6 @@
 golden.ratio <- (1 + sqrt(5)) / 2
 
-fibonacci <- function(n) { as.integer((golden.ratio ^ n - (1 - golden.ratio) ^ n) / sqrt(5)) }
+fibonacci <- function(n) { (golden.ratio ^ n - (1 - golden.ratio) ^ n) / sqrt(5) }
 
 fibonacci.order <- function(x) {
     n <- as.integer(floor(log(sqrt(5) * x, golden.ratio) + 0.5))
@@ -18,4 +18,4 @@ fibonacci.alternate <- function(n) {
     sum(choose(seq(n,a),seq(0,b)))
 }
 
-lucas <- function(n) { as.integer(golden.ratio ^ n + (1 - golden.ratio) ^ n) }
+lucas <- function(n) { golden.ratio ^ n + (1 - golden.ratio) ^ n }
