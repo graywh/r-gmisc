@@ -16,9 +16,12 @@ prime.factorization <- function(x) {
 
     pow <- unlist(lapply(prim.fac, how.many.times, y=x))
     maybe <- x / prod(ppa <- prim.fac ^ pow)
-    out <- cbind(prim.fac, pow)
-    if (maybe > 1) { out <- rbind(out, c(maybe, 1)) }
-    return(out[order(out[,1]),])
+    if (maybe > 1) {
+        prim.fac <- c(prim.fac, maybe)
+        pow <- c(pow, 1)
+    }
+    ord <- order(prim.fac)
+    return(list(factors=prim.fac[ord], powers=pow[ord]))
 }
 
 sieve.of.eratosthenes <- function(limit) {
