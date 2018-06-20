@@ -65,14 +65,17 @@ miller.rabin <- function(x, k=NULL) {
         s <- s + 1
     }
     if (is.null(k)) {
-        for (a in seq(2, min(x1, floor(2 * log(x) ^ 2))))
-            if (pow(a,d,x) != 1 && all(pow(a, (2 ** seq(0, s-1)) * d, x) != x1))
+        for (a in seq(2, min(x1, floor(2 * log(x) ^ 2)))) {
+            if (pow(a,d,x) != 1 && all(pow(a, (2 ** seq(0, s-1)) * d, x) != x1)) {
                 return(FALSE)
+            }
+        }
     } else {
         for (j in seq(0, k-1)) {
             a <- sample(x1, 1)
-            if (pow(a,d,x) != 1 && all(pow(a, (2 ** seq(0, s-1)) * d, x) != x1))
+            if (pow(a,d,x) != 1 && all(pow(a, (2 ** seq(0, s-1)) * d, x) != x1)) {
                 return(FALSE)
+            }
         }
     }
     return(TRUE)
@@ -108,7 +111,8 @@ nextprime <- function(x) {
         return(5 - n)
     }
     y <- x + nextn(x %% 6)
-    while (!is.prime.naive(y))
+    while (!is.prime.naive(y)) {
         y <- y + nextn(y %% 6)
+    }
     return(y)
 }
