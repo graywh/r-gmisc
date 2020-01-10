@@ -1,5 +1,4 @@
-strrjust <- function(x, n=1, char=" ", type="c")
-{
+strrjust <- function(x, n=1, char=" ", type="c") {
     if (nchar(char, type=type)[1] > 1)
         char <- strsplit(char[1], NULL)[[1]]
     f <- function(x, n, c) {
@@ -12,8 +11,7 @@ strrjust <- function(x, n=1, char=" ", type="c")
     mapply(f, x, n, char, USE.NAMES=FALSE)
 }
 
-strljust <- function(x, n=1, char=" ", type="c")
-{
+strljust <- function(x, n=1, char=" ", type="c") {
     if (nchar(char, type=type)[1] > 1) {
         char <- strsplit(char[1], NULL)[[1]]
     }
@@ -27,12 +25,19 @@ strljust <- function(x, n=1, char=" ", type="c")
     mapply(f, x, n, char, USE.NAMES=FALSE)
 }
 
-strcenter <- function(x, n=1, char=" ", type="c")
-{
+strcenter <- function(x, n=1, char=" ", type="c") {
     if (nchar(char, type=type)[1] > 1) {
         char <- strsplit(char[1], NULL)[[1]]
     }
     lx <- nchar(x, type=type)
     r <- ceiling((n - lx) / 2) + lx
     strrjust(strljust(x, r, char), n, char)
+}
+
+strrev <- function(x) {
+    collapse(lapply(strsplit(x, NULL), rev))
+}
+
+collapse <- function(x) {
+    sapply(x, paste, collapse="")
 }

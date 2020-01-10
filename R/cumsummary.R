@@ -1,5 +1,4 @@
-cumsummary <- function (x, values=NULL)
-{
+cumsummary <- function (x, values=NULL) {
     if (!is.null(values)) {
         v <- values
     } else if (is.numeric(x) && !is.null(names(x))) {
