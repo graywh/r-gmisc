@@ -16,7 +16,7 @@ decodeQR <- function(x) {
 }
 
 encodeQR <- function(s) {
-    sapply(strsplit(s, ''), function(y) {
+    sapply(strsplit(toupper(s), ''), function(y) {
         n <- length(y)
         if (n %% 2 == 1) {
             z <- strrjust(baseConvert(QRCODES[y[n]], 2), 6, '0')
