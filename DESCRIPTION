@@ -6,4 +6,4 @@ Maintainer: Will Gray <graywh@gmail.com>
 Depends: R (>= 2.0.0)
 Description: Various functions that are useful for everyday programming in R.
 License: GPL version 3 or newer.
-URL: http://biostat.mc.vanderbilt.edu/Gmisc
+URL: https://github.com/graywh/r-gmisc
