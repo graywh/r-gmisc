@@ -1,4 +1,4 @@
-library(Gmisc, warn.conflicts=FALSE)
+library(graywh, warn.conflicts=FALSE)
 
 # 6125
 with(prime.factorization(6125), prod(factors**powers))

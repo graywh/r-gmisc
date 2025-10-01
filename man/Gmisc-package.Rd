@@ -1,8 +1,8 @@
 \docType{package}
-\name{Gmisc-package}
-\alias{Gmisc-package}
-\alias{Gmisc}
-\title{Gmisc}
+\name{graywh-package}
+\alias{graywh-package}
+\alias{graywh}
+\title{graywh}
 \description{
   Collection of useful functions from Will.
 }

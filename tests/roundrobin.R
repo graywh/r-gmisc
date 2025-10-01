@@ -1,4 +1,4 @@
-library(Gmisc, warn.conflicts=FALSE)
+library(graywh, warn.conflicts=FALSE)
 
 # 2 1 5 6 3 4
 # 3 6 1 5 4 2
